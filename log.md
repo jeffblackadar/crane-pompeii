@@ -26,3 +26,9 @@ http://doc.scrapy.org/en/1.1/intro/install.html
 So this is a dead end.
 
 Maybe I should just wget it from my other computer and then crank through the html files and parse them (which I can do already.) I only want to get these files once, but I will likely parse them many times.
+
+### Use Wget
+Open Bash on Windows PC
+go to 
+/mnt/c/a_orgs/carleton/hist3814/R/pompeii/html
+wget --mirror --accept html,htm --wait 20 --limit-rate=20k --random-wait http://ottawahort.org
