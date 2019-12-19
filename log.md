@@ -32,3 +32,6 @@ Open Bash on Windows PC
 go to 
 /mnt/c/a_orgs/carleton/hist3814/R/pompeii/html
 wget --mirror --accept html,htm --wait 20 --limit-rate=20k --random-wait http://ottawahort.org
+
+## image search
+https://www.pyimagesearch.com/2017/11/27/image-hashing-opencv-python/
