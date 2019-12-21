@@ -83,3 +83,15 @@ https://www.pyimagesearch.com/2017/11/27/image-hashing-opencv-python/
  
 I am wondering why wget had 4420 files and my process imports 4418
 
+```
+CREATE TABLE `tbl_webpage_images` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_webpage` int(11) DEFAULT NULL COMMENT 'The id of the row for the webpage in tbl_webpages.',
+  `folder` varchar(99) DEFAULT NULL COMMENT 'The folder and path from the main directory of the website for the web page the image appears on.',
+  `img_src` varchar(99) DEFAULT NULL COMMENT 'The src (folder and file name) of the image as it appears on the web page.',
+  `img_alt` varchar(1000) DEFAULT NULL COMMENT 'The alt text of the image.',
+  `img_height` decimal(10,0) DEFAULT NULL COMMENT 'The height of the image as noted on the web page.',
+  `img_width` decimal(10,0) DEFAULT NULL COMMENT 'The width of the image as noted on the web page.',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Contains the list of images that appear on webpages for the website.';
+```
