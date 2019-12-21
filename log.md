@@ -33,5 +33,10 @@ go to
 /mnt/c/a_orgs/carleton/hist3814/R/pompeii/html
 wget --mirror --accept html,htm --wait 20 --limit-rate=20k --random-wait http://ottawahort.org
 
+FINISHED --2019-12-20 23:09:55--
+Total wall clock time: 2d 7h 1m 44s
+Downloaded: 4420 files, 282M in 3h 57m 43s (20.3 KB/s)
+pi@User-PC:/mnt/c/a_orgs/carleton/hist3814/R/pompeii/website$ wget --mirror --accept html,htm --wait 20 --limit-rate=20k --random-wait https://pompeiiinpictures.com/
+
 ## image search
 https://www.pyimagesearch.com/2017/11/27/image-hashing-opencv-python/
