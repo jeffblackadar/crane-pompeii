@@ -76,3 +76,10 @@ database=webpage_images
 
 ## image search
 https://www.pyimagesearch.com/2017/11/27/image-hashing-opencv-python/
+
+## Results:
+3	14	13:34:47	SELECT * FROM webpage_images.tbl_webpages
+ LIMIT 0, 5000	4418 row(s) returned	0.016 sec / 0.000 sec
+ 
+I am wondering why wget had 4420 files and my process imports 4418
+
