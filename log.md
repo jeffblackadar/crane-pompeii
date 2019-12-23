@@ -100,3 +100,6 @@ CREATE TABLE `tbl_webpage_images` (
 I likely need to log into box.com to get other images
 I will have to do that automated
 https://github.com/box/box-python-sdk
+
+Azure
+https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-register-datasets
