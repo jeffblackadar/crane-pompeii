@@ -95,3 +95,8 @@ CREATE TABLE `tbl_webpage_images` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Contains the list of images that appear on webpages for the website.';
 ```
+
+### Box.com
+I likely need to log into box.com to get other images
+I will have to do that automated
+https://github.com/box/box-python-sdk
