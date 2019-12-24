@@ -103,3 +103,7 @@ https://github.com/box/box-python-sdk
 
 Azure
 https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-register-datasets
+
+
+python mariadb
+https://mariadb.com/resources/blog/how-to-connect-python-programs-to-mariadb/
