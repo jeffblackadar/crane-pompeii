@@ -8,7 +8,12 @@ The website pompeiiinpictures has a large number of images of Pompeii. This proj
 
 ### Approach
 
-All of the html files are downloaded to a local computer for processing using wget
+All of the html files are downloaded to a local computer for processing using wget.
+
+Use 0_get_webpages_from_local_and_store_in_database.R to read all of the .html files from the website and their file names into the database webpage_images.tbl_webpages.
+
+Use 1_get_image_data_from_webpages_and_store_in_database.R to open all of the .html files parse them, get all of the img tags. For each img tag, insert the src, alt, height and width into the database webpage_images.tbl_webpage_images.
+
 
 ### Project Assumptions
 

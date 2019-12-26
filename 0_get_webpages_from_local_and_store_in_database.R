@@ -2,7 +2,7 @@
 #
 # Don't run this unless you want to do that.
 #
-# Before running this truncate webpage_images.tbl_webpage_images;
+# Before running this truncate webpage_images.tbl_webpages;
 
 library(RMariaDB)
 #install.packages("rvest")
