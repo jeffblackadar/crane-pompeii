@@ -107,3 +107,8 @@ https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-re
 
 python mariadb
 https://mariadb.com/resources/blog/how-to-connect-python-programs-to-mariadb/
+
+## Local processing of images
+The program that processes the images runs on Google Colab - but I can only run it for a short period of time. Google Colab does not permit long running processes.  So I made a version to run on my PC and store the results into the database rather than the google Spreadsheet. This is called pompeii_image_seeer_local_pc.ipynb
+
+ 
