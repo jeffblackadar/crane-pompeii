@@ -111,4 +111,7 @@ https://mariadb.com/resources/blog/how-to-connect-python-programs-to-mariadb/
 ## Local processing of images
 The program that processes the images runs on Google Colab - but I can only run it for a short period of time. Google Colab does not permit long running processes.  So I made a version to run on my PC and store the results into the database rather than the google Spreadsheet. This is called pompeii_image_seeer_local_pc.ipynb
 
+I ran pompeii_image_seeer_local_pc.ipynb to completion - 64k of 69,000 impages processed.  I have to move in the 5000 images I processed on Google Colab stored on the spreadsheet
+
+
  
