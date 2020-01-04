@@ -113,5 +113,19 @@ The program that processes the images runs on Google Colab - but I can only run 
 
 I ran pompeii_image_seeer_local_pc.ipynb to completion - 64k of 69,000 impages processed.  I have to move in the 5000 images I processed on Google Colab stored on the spreadsheet
 
+box_images_processing.ipynb ran, connected to box.com with authentication, get a list of images and stored them into the database webpage_images.tbl_box_images.
 
+### Probable duplicates between webpage_images.tbl_box_images and webpage_images.tbl_webpage_images
+I think all of the images on box in the folder pinp5 are already processed.  I want to match them based on path
+webpage_images.tbl_box_images:
+/pinp5/Altars/Altars/Altar 10110_files/image001.jpg
+
+webpage_images.tbl_webpage_images:
+/pompeiiinpictures/Altars + Altar%2050301_files/image007.jpg
+
+It's close, but I need to replace %20 with space and remove the repeated folder name in tbl_box_images.  So I will do that.
+Once done, I won't process the matched images
+
+### Processing other images on box
+I plan to connect to box, download a thumbnail of a max 320 pixels and image hash that.  I think it will be faster, save bandwidth and have the same result since the image hash reduces images to 8X9 pixels.  According to the API documentation and a test download that is doable.
  
