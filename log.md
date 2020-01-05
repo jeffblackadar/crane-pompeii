@@ -126,6 +126,16 @@ webpage_images.tbl_webpage_images:
 It's close, but I need to replace %20 with space and remove the repeated folder name in tbl_box_images.  So I will do that.
 Once done, I won't process the matched images
 
+This is done with update img_path_match.ipynb
+
+### Match up the box images with the web pages already processed.
+update webpage_images.tbl_box_images bi
+inner join webpage_images.tbl_webpage_images wi on
+    bi.img_path_match = wi.img_path_match
+set bi.id_tbl_webpage_images = wi.id
+WHERE bi.id < 10 and wi.id < 10;
+
+
 ### Processing other images on box
 I plan to connect to box, download a thumbnail of a max 320 pixels and image hash that.  I think it will be faster, save bandwidth and have the same result since the image hash reduces images to 8X9 pixels.  According to the API documentation and a test download that is doable.
  
