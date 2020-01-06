@@ -14,6 +14,18 @@ Use 0_get_webpages_from_local_and_store_in_database.R to read all of the .html f
 
 Use 1_get_image_data_from_webpages_and_store_in_database.R to open all of the .html files parse them, get all of the img tags. For each img tag, insert the src, alt, height and width into the database webpage_images.tbl_webpage_images.
 
+pompeii_image_seeer_local_pc.ipynb - process each image, get descriptions from Azure cognitive services, get the image hash and store both.
+
+dupe_finder.ipynb - A program to find the duplicate images in a sample of the results from pompeii_image_seeer_local_pc.ipynb using the Google Spreadsheet
+
+sample_duplicates.htm - is a sample from dupe_finder.ipynb  There are some false duplicates in the sample.  Part of the work of the project will control for this using image descriptions.
+
+box application - a configured application on box.com to authenticate and connect to the box.com API.
+
+box_images_processing.ipynb - Authenticates with Box.com to get a list of all of the image files and store them in the database into webpage_images.tbl_box_images.
+
+update img_path_match.ipynb - Run this to update the img_path_match column for tbl_webpage_images and tbl_box_images.
+
 
 ### Project Assumptions
 
