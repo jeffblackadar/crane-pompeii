@@ -25,5 +25,5 @@ sample_duplicates.htm - is a sample from dupe_finder.ipynb  There are some false
 
 box_images_processing.ipynb - Authenticates with Box.com to get a list of all of the image files and store them in the database into webpage_images.tbl_box_images.
 
-
+update img_path_match.ipynb - Run this to update the img_path_match column for tbl_webpage_images and tbl_box_images.
 
