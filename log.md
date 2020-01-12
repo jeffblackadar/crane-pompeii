@@ -138,4 +138,38 @@ WHERE bi.id < 10 and wi.id < 10;
 
 ### Processing other images on box
 I plan to connect to box, download a thumbnail of a max 320 pixels and image hash that.  I think it will be faster, save bandwidth and have the same result since the image hash reduces images to 8X9 pixels.  According to the API documentation and a test download that is doable.
+
+### SQL to get matched images
+
+```
+use webpage_images;
+
+insert into webpage_images.tbl_image_hash (image_hash, wi_id, bi_id)
+select distinct image_hash, wi_id, bi_id
+from (
+    select image_hash, id as wi_id , 0 as bi_id from tbl_webpage_images
+    union all
+    select image_hash, 0 as wi_id, id as bi_id from tbl_box_images
+) a 
+where image_hash
+order by image_hash;
+
+```
+The above SQL makes a table of all of the image_hashes.  I would like a table with only those that occur more than once. So below I try to delete
+```
+
+
+CREATE TEMPORARY TABLE single_image_hashes3(
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    image_hash DEC(20,0) DEFAULT NULL
+);
+
+insert into single_image_hashes3 (image_hash) SELECT image_hash FROM webpage_images.tbl_image_hash group by image_hash having count(image_hash)=1;
+
+select image_hash from single_image_hashes3;
+SET SQL_SAFE_UPDATES = 0;
+DELETE FROM tbl_image_hash WHERE image_hash IN (select image_hash from single_image_hashes2 where image_hash>0);
+
+```
+
  
