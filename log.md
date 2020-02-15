@@ -171,5 +171,8 @@ SET SQL_SAFE_UPDATES = 0;
 DELETE FROM tbl_image_hash WHERE image_hash IN (select image_hash from single_image_hashes2 where image_hash>0);
 
 ```
-
+The use of the 320 pixel wide large thumbnail to do the image hash for the box images did not work.
+It resulted in image hashs that are different for the same images at full size. 
+So I am re-running the image hash for box, it's slow.
+I am going to see if I run this on other machines.
  
