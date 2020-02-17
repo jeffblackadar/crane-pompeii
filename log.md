@@ -176,3 +176,31 @@ It resulted in image hashs that are different for the same images at full size.
 So I am re-running the image hash for box, it's slow.
 I am going to see if I run this on other machines.
  
+# Set up MySQL on Carleton Server
+per:
+https://support.rackspace.com/how-to/install-mysql-server-on-the-ubuntu-operating-system/
+sudo apt-get update
+sudo apt-get install mysql-server
+
+## Launch MySQL
+sudo systemctl start mysql
+
+sudo mysql_secure_installation utility
+Set a root password
+Removed anonymous access
+
+
+sudo /usr/bin/mysql -u root -p
+
+CREATE DATABASE `webpage_images` /*!40100 DEFAULT CHARACTER SET utf8 */; 
+
+ 
+
+USE webpage_images; 
+
+
+CREATE USER 'webpage_images_user'@'localhost' IDENTIFIED BY '====='; 
+GRANT SELECT, INSERT, UPDATE, DELETE, EXECUTE, SHOW VIEW ON webpage_images.* TO 'webpage_images_user'@'localhost'; 
+
+ 
+
