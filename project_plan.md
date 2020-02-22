@@ -26,10 +26,19 @@ box_images_processing.ipynb - Authenticates with Box.com to get a list of all of
 
 update img_path_match.ipynb - Run this to update the img_path_match column for tbl_webpage_images and tbl_box_images.
 
+---
+Problems 17 Feb 2020
+
+Images were downloaded and being appended with .jpg.  This does not work for .gif, .png, .tif
+Cure - re-run this
+
+
+
+
 
 ### Project Assumptions
 
-The primary task of matching images is to match lower resolution images on pompeiiinpictures to higher resolution images stored in box.com.  
+The primary task of matching images is to match lower resolution images on pompeiiinpictures to higher resolution images stored in box.com. 
 
 More than half of the 100K images on box.com won't be matched to images on the website.
 
@@ -101,6 +110,8 @@ Wget - use of a 20 second wait.
 Imageseer - download the images so that they don't have to be downloaded again if they need to be reprocessed.
 
 Don't run too many processes at the same time from different computers
+
+Download all of the images, and then process
 
 
 ### Project Resources

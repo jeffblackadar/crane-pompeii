@@ -202,5 +202,7 @@ USE webpage_images;
 CREATE USER 'webpage_images_user'@'localhost' IDENTIFIED BY '====='; 
 GRANT SELECT, INSERT, UPDATE, DELETE, EXECUTE, SHOW VIEW ON webpage_images.* TO 'webpage_images_user'@'localhost'; 
 
+Downloading all files to Carleton
+Transferrring processing there
  
 
