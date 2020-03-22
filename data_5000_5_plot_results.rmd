@@ -1,0 +1,112 @@
+---
+title: "Results of RCNN model to Detect Construction Type Opus Incertum for selected models."
+output: html_notebook
+---
+
+This is a notebook of results for selected models to analyse which one will be selected as the best.
+ 
+
+
+```{r}
+
+graph_result <- function(cfg_name) {
+  library("ggplot2")
+  library("ggthemes")
+  
+  image_prediction_folder <-
+  paste0(
+  '/home/student/data_5000_project/data/images/construction_types/processed/opus_incertum/predictions/',
+  cfg_name,
+  "/unknown/"
+  )
+  results <-
+  read.table(
+  paste0(image_prediction_folder, "results_", cfg_name, ".csv"),
+  header = TRUE,
+  sep = ",",
+  dec = "."
+  )
+  results_df <- data.frame(results)
+  
+  g1p <- ggplot(results_df, aes(min_score)) +
+  geom_line(aes(y = gt_obj_pres_pos , colour = "Ground Truth: Present"),
+  linetype = 2) +
+  geom_line(aes(y = tp , colour = "Prediction: TP")) +
+  geom_line(aes(y = fp , colour = "Prediction: FP")) +
+  theme_igray() +
+  ggtitle(paste0("Opus Incertum Present in Image. Model: ", cfg_name)) +
+  xlab("Minimum Prediction Confidence Score Used") +
+  ylab("Number of Occurences")
+  
+  g1n <- ggplot(results_df, aes(min_score)) +
+  geom_line(aes(y = gt_obj_pres_neg , colour = "Ground Truth: Not Present"),
+  linetype = 2) +
+  geom_line(aes(y = tn , colour = "Prediction: TN")) +
+  geom_line(aes(y = fn , colour = "Prediction: FN")) +
+  theme_igray() +
+  ggtitle(paste0("Opus Incertum Not Present in Image. Model: ", cfg_name)) +
+  xlab("Minimum Prediction Confidence Score Used") +
+  ylab("Number of Occurences")
+  
+  g2 <- ggplot(results_df, aes(min_score)) +
+  geom_line(aes(y = tp_box , colour = "Prediction Boxes: True Positive (TP)")) +
+  geom_line(aes(y = fp_box , colour = "Prediction Boxes: False Positive (FP)")) + theme_minimal() +
+  theme_igray() +
+  ggtitle(paste0("Prediction Regions, True vs. False Positives. Model: ", cfg_name)) +
+  xlab("Minimum Prediction Confidence Score Used") +
+  ylab("Number of Occurences")
+  
+  print(g1p)
+  
+  print(g1n)
+  
+  print(g2)
+  
+  results_df <- within(results_df, accuracy <- ((tp + tn) / (tp + tn + fp +
+  fn)))
+  results_df <- within(results_df, sn <- ((tp) / (tp + fn)))
+  results_df <- within(results_df, sp <- ((tn) / (tn + fp)))
+  results_df <- within(results_df, ppv <- ((tp) / (tp + fp)))
+  results_df <- within(results_df, npv <- ((tn) / (tn + fn)))
+  print(results_df)
+  g3 <- ggplot(results_df, aes(min_score)) +
+  geom_line(aes(y = accuracy , colour = "Accuracy"), linetype=2) +
+  geom_line(aes(y = sn , colour = "Sensitivity/Recall/True Positive Rate")) +
+  geom_line(aes(y = sp , colour = "Specificity")) +
+  theme_igray() +
+  ggtitle(paste0("Sensitivity and Specificity. Model: ", cfg_name)) +
+  xlab("Minimum Prediction Confidence Score Used") +
+  ylab("% Accuracy")
+  
+  print(g3)
+  
+  g4 <- ggplot(results_df, aes(min_score)) +
+  geom_line(aes(y = accuracy , colour = "Accuracy"), linetype=2) +
+  geom_line(aes(y = ppv , colour =  "Positive Predictive Value")) +
+  geom_line(aes(y = npv , colour = "Negative Predictive Value")) +
+  theme_igray() +
+  ggtitle(paste0("Predictive Value. Model: ", cfg_name)) +
+  xlab("Minimum Prediction Confidence Score Used") +
+  ylab("% Accuracy")
+  
+  print(g4)
+  
+}
+```
+# Model cfg20200307T0901
+## Epochs = 5
+
+```{r}
+cfg_name <- 'cfg20200307T0901'
+graph_result(cfg_name)
+
+```
+
+# Model cfg20200318T1120
+## Epochs = 40
+```{r}
+cfg_name <- 'cfg20200318T1120'
+graph_result(cfg_name)
+```
+
+
