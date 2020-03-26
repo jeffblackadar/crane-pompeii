@@ -1,6 +1,11 @@
 ---
-title: "Results of RCNN model to Detect Construction Type Opus Incertum for selected models."
-output: html_notebook
+title: Results of RCNN model to Detect Construction Type Opus Incertum for selected
+  models.
+output:
+  html_document:
+    df_print: paged
+  html_notebook: default
+  pdf_document: default
 ---
 
 This is a notebook of results for selected models to analyse which one will be selected as the best.
